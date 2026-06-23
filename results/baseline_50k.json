@@ -1,0 +1,8 @@
+{
+  "corpus_size": 50000,
+  "model": "LaBSE",
+  "index": "FAISS IndexFlatIP",
+  "mrr10": 0.1985,
+  "recall100": 0.7879,
+  "evaluable_queries": 33
+}
