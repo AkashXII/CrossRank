@@ -4,5 +4,9 @@
   "index": "FAISS IndexFlatIP",
   "mrr10": 0.1985,
   "recall100": 0.7879,
-  "evaluable_queries": 33
+  "evaluable_queries": 33,
+  "After Rocchio": {
+    "mrr10": 0.4545,
+    "recall100": 0.7879
+  }
 }

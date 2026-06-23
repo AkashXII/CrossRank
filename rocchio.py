@@ -21,3 +21,4 @@ def rocchio(query_vec, relevant_vecs, non_relevant_vecs,
     # Renormalize
     new_query = new_query / np.linalg.norm(new_query)
     return new_query
+
