@@ -54,6 +54,16 @@
       "gamma": 0.50,
       "mrr10": 0.4848,
       "recall100": 0.7879
+    },
+    {
+      "note": "MRR@10 stable at 0.4848 across all 5 weight combinations",
+      "findings":"It is robust to weight changes for this dataset and corpus size."
     }
-  ]
+  ],
+    "bm25_exploratory_baseline": {
+    "task": "japanese_to_japanese",
+    "tokenization": "MeCab",
+    "mrr10": 0.2564,
+    "recall100": 0.6970
+  }
 }
