@@ -34,7 +34,7 @@ The system includes an interactive Streamlit demo where users can enter an Engli
 
 CrossRank follows a two-stage retrieval pipeline with relevance feedback. Japanese documents are embedded offline using LaBSE and indexed in FAISS. During retrieval, an English query is encoded into the same embedding space, used to retrieve the most similar documents, and then refined using Rocchio relevance feedback before a second retrieval pass.
 
-![CrossRank Architecture](assets/CrossRank4.jpg)
+![CrossRank Architecture](assests/CrossRank4.jpg)
 
 ### Pipeline Overview
 
