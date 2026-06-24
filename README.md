@@ -30,6 +30,14 @@ The system includes an interactive Streamlit demo where users can enter an Engli
 - Exploratory BM25 baseline comparison on Japanese queries
 
 ---
+## Demo
+
+Quick Demo: [Click here](https://youtu.be/N3DQ9i8HVA0?si=5PizN239lLGaAJVX)
+
+The demo provides a brief overview of the system architecture and demonstrates the complete CrossRank workflow from initial retrieval to Rocchio-based re-ranking.</br>
+Snapshots:
+![Snapshot](assests/pic3.jpeg)
+
 ## Architecture
 
 CrossRank follows a two-stage retrieval pipeline with relevance feedback. Japanese documents are embedded offline using LaBSE and indexed in FAISS. During retrieval, an English query is encoded into the same embedding space, used to retrieve the most similar documents, and then refined using Rocchio relevance feedback before a second retrieval pass.
@@ -113,17 +121,4 @@ Detailed experimental results are available in results_50k.json.
 
 ---
 
-## Project Structure
 
-```text
-.
-├── embed_corpus.py
-├── evaluate.py
-├── evaluate_bm25.py
-├── rocchio.py
-├── app.py
-├── results.json
-├── index/
-│   ├── corpus.index
-│   └── doc_ids.json
-└── README.md
