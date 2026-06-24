@@ -4,14 +4,15 @@ import numpy as np
 import ir_datasets
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
-#japanese to japanese
+#english to japanese
 #the comments are for my reference to learn as i build hehe
 model = SentenceTransformer("sentence-transformers/LaBSE", device="cuda")
 index = faiss.read_index("index/corpus.index")
 
 with open("index/doc_ids.json") as f:
     doc_ids = json.load(f)
-
+with open("index/english_queries.json") as f:
+    english_queries = json.load(f)
 dataset = ir_datasets.load("mr-tydi/ja/dev")
 
 #creating a dict for the qrels for easier access cus qrels in the dataset have multiple entries per query. now we can easily get the relevant doc ids for each query by looking up the query id in this dict.
@@ -22,23 +23,7 @@ for qrel in dataset.qrels_iter():
     qrels[qrel.query_id].add(qrel.doc_id)
 
 #all the queries from the dataset
-queries = []
-for q in dataset.queries_iter():
-    queries.append((q.query_id, q.text))
-
-#we jus adding rel benchmark queries which are there in our 50000 subset
-doc_ids_set = set(doc_ids)
-filtered_queries = []
-for qid, qtext in queries:
-    relevant_docs = qrels.get(qid, set())
-    keep_query = False
-    for doc_id in relevant_docs:
-        if doc_id in doc_ids_set:
-            keep_query = True
-            break
-    if keep_query:
-        filtered_queries.append((qid, qtext))
-queries = filtered_queries
+queries = [(q["query_id"], q["text"]) for q in english_queries]
 print(f"Evaluable queries: {len(queries)}")
 
 

@@ -2,11 +2,58 @@
   "corpus_size": 50000,
   "model": "LaBSE",
   "index": "FAISS IndexFlatIP",
-  "mrr10": 0.1985,
-  "recall100": 0.7879,
+  "evaluation": "cross-lingual (English queries → Japanese docs)",
   "evaluable_queries": 33,
-  "After Rocchio": {
+  "japanese_to_japanese_baseline": {
+    "mrr10": 0.1985,
+    "recall100": 0.7879
+  },
+  "japanese_to_japanese_rocchio": {
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.15,
     "mrr10": 0.4545,
     "recall100": 0.7879
-  }
+  },
+  "english_to_japanese_baseline": {
+    "mrr10": 0.1781,
+    "recall100": 0.7879
+  },
+  "english_to_japanese_rocchio": {
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.15,
+    "mrr10": 0.4848,
+    "recall100": 0.7879
+  },
+    "rocchio_sensitivity_analysis": [
+    {
+      "alpha": 1.0,
+      "beta": 0.50,
+      "gamma": 0.25,
+      "mrr10": 0.4848,
+      "recall100": 0.7879
+    },
+    {
+      "alpha": 1.0,
+      "beta": 1.00,
+      "gamma": 0.00,
+      "mrr10": 0.4848,
+      "recall100": 0.7879
+    },
+    {
+      "alpha": 0.50,
+      "beta": 0.75,
+      "gamma": 0.15,
+      "mrr10": 0.4848,
+      "recall100": 0.7879
+    },
+    {
+      "alpha": 1.0,
+      "beta": 0.25,
+      "gamma": 0.50,
+      "mrr10": 0.4848,
+      "recall100": 0.7879
+    }
+  ]
 }
