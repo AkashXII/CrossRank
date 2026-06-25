@@ -11,7 +11,7 @@ def tokenize(text):
 
 dataset = ir_datasets.load("mr-tydi/ja/dev")
 
-# Build qrels
+#Build qrels
 qrels = {}
 for qrel in dataset.qrels_iter():
     if qrel.query_id not in qrels:
@@ -32,7 +32,6 @@ for i, doc in enumerate(tqdm(dataset.docs_iter(), total=50000)):
 print("Building BM25 index...")
 bm25 = BM25Okapi(tokenized_docs)
 
-# Load evaluable queries
 queries = [(q.query_id, q.text) for q in dataset.queries_iter()]
 doc_ids_set = set(doc_ids)
 queries = [(qid, qtext) for qid, qtext in queries

@@ -5,7 +5,6 @@ from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 import json
 
-# Config
 SUBSET_SIZE = 50000
 BATCH_SIZE = 256
 OUTPUT_DIR = "index"
@@ -13,12 +12,11 @@ OUTPUT_DIR = "index"
 import os
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-#we load the model first
-print("Loading LaBSE...")
+print("Loading LaBSE model")
 model = SentenceTransformer("sentence-transformers/LaBSE", device="cuda")
 
-#loading datasetr
-print("Loading corpus...")
+#50kdocsonly
+print("Loading dataset")
 dataset = ir_datasets.load("mr-tydi/ja/dev")
 docs = []
 doc_ids = []
@@ -29,7 +27,7 @@ for i, doc in enumerate(dataset.docs_iter()):
         break
 print(f"Loaded {len(docs)} documents")
 
-# Embedding
+#Embedding
 print("Embedding documents...")
 embeddings = model.encode(
     docs,

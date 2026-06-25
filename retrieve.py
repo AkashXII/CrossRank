@@ -3,8 +3,7 @@ import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
 import ir_datasets
-
-# Load model, index, doc_ids
+#testing file
 model = SentenceTransformer("sentence-transformers/LaBSE", device="cuda")
 index = faiss.read_index("index/corpus.index")
 with open("index/doc_ids.json") as f:
@@ -21,10 +20,9 @@ def retrieve(query, top_k=10):
         text = docs_lookup.get(doc_id, "")
         results.append((doc_id, score, text))
     return results
-# Test it
-query = "Where was the founder of Nintendo born?"
+#testing
+query = "Where is mount fuji?"
 print(f"Query: {query}\n")
-
 results = retrieve(query)
 for i, (doc_id, score, text) in enumerate(results):
     print(f"Rank {i+1} | Score: {score:.4f} | ID: {doc_id}")

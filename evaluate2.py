@@ -5,7 +5,7 @@ import ir_datasets
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 #japanese to japanese
-#the comments are for my reference to learn as i build hehe
+#the comments are for my reference to learn as i build :))
 model = SentenceTransformer("sentence-transformers/LaBSE", device="cuda")
 index = faiss.read_index("index/corpus.index")
 
@@ -112,6 +112,6 @@ for i, (qid, _) in enumerate(queries):
             break
     mrr_rf_scores.append(mrr)
 
-print(f"\n--- After Relevance Feedback ---")
+print(f"\nAfter Relevance Feedback ")
 print(f"MRR@10:      {np.mean(mrr_rf_scores):.4f}")
 print(f"Recall@100:  {np.mean(recall_rf_scores):.4f}")

@@ -60,8 +60,7 @@ def render_card(r, rank=None, show_checkbox=False):
     st.divider()
     return relevant
 
-# --- UI ---
-
+#UI
 st.title("Cross-Lingual Retrieval")
 st.caption("English query → Japanese document retrieval using LaBSE embeddings")
 
@@ -82,7 +81,7 @@ if "results" in st.session_state:
     st.divider()
 
     if not st.session_state.get("feedback_done"):
-        st.subheader("Results — mark relevant documents")
+        st.subheader("Results - mark relevant documents")
         st.caption("Select documents that answer your query, then click Apply Feedback.")
 
         feedback = {}
